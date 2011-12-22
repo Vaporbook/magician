@@ -11,6 +11,13 @@ class Magician
 		exec "convert -resize #{ width }x#{ height } #{ @sourcePath } #{ @destPath }", (err, stdout, stderr) ->
 			callback no if callback
 	
+	cropFrom: (x, y, width, height, callback) ->
+		if x < 0 or y < 0 or width < 0 or height < 0
+			return callback new Error "x, y, width and height should be bigger than 0"
+		that = @
+		exec "convert #{ @sourcePath } -crop #{ width }x#{ height }+#{ x }+#{ y } #{ @destPath }", (err, stdout, stderr) ->
+			callback no if callback
+	
 	getDimensions: (callback) ->
 		that = @
 		exec "identify #{ @sourcePath }", (err, stdout, stderr) ->

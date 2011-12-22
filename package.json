@@ -1,8 +1,8 @@
 {
     "name": "magician"
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "description": "Library for image manipulation. Requires imagemagick."
-  , "keywords": ["image", "imagemagick", "magick", "resize"]
+  , "keywords": ["image", "imagemagick", "magick", "resize", "crop"]
   , "author": "Vadim Demedes <sbioko@gmail.com>"
   , "dependencies": {}
   , "main": "index"

@@ -64,6 +64,7 @@ The main dependency is ImageMagick. convert and identify command-line tools, in 
 This is very early release, so Magician does not have a lot of features.
 
 * Resizing images
+* Cropping images
 * Getting dimensions of an image
 
 # Usage
@@ -74,6 +75,9 @@ magician = require 'magician'
 image = new magician __dirname + '/source.jpg', __dirname + '/target.jpg'
 
 image.resizeTo 100, 100, (err) ->
+	// done!
+	
+image.cropFrom 0, 0, 200, 100, (err) ->
 	// done!
 
 ```
@@ -88,7 +92,6 @@ zap
 
 # TODO List
 
-* Cropping
 * Resizing using ratio
 * Blurring image
 * getting base64 encoded content of image for data:URIs
