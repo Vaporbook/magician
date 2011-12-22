@@ -80,6 +80,9 @@ image.resizeTo 100, 100, (err) ->
 image.cropFrom 0, 0, 200, 100, (err) ->
 	// done!
 
+image.convert ->
+	// convert from source format to target format
+
 ```
 
 # Tests
@@ -93,6 +96,7 @@ zap
 # TODO List
 
 * Resizing using ratio
+* Improve test for convert() method
 * Blurring image
 * getting base64 encoded content of image for data:URIs
 

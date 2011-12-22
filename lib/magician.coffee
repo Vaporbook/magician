@@ -8,15 +8,19 @@ class Magician
 		if not width or width < 0 or not height or height < 0
 			return callback new Error "width and height should be bigger than 0"
 		
-		exec "convert -resize #{ width }x#{ height } #{ @sourcePath } #{ @destPath }", (err, stdout, stderr) ->
+		exec "convert -resize #{ width }x#{ height } #{ @sourcePath } #{ @destPath }", ->
 			callback no if callback
 	
 	cropFrom: (x, y, width, height, callback) ->
 		if x < 0 or y < 0 or width < 0 or height < 0
 			return callback new Error "x, y, width and height should be bigger than 0"
-		that = @
-		exec "convert #{ @sourcePath } -crop #{ width }x#{ height }+#{ x }+#{ y } #{ @destPath }", (err, stdout, stderr) ->
+		exec "convert #{ @sourcePath } -crop #{ width }x#{ height }+#{ x }+#{ y } #{ @destPath }", ->
 			callback no if callback
+	
+	convert: (callback) ->
+		exec "convert #{ @sourcePath } #{ @destPath }", ->
+			callback no if callback
+		
 	
 	getDimensions: (callback) ->
 		that = @

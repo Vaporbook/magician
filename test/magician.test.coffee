@@ -23,6 +23,13 @@ module.exports=
 				test.done()
 				fs.unlinkSync __dirname + '/image_cropped.jpg'
 	
+	'test converting image': (test) ->
+		image = new test.magician __dirname + '/image.jpg', __dirname + '/image.png'
+		image.convert ->
+			assert.ok(true)
+			test.done()
+			fs.unlinkSync __dirname + '/image.png'
+	
 	'test getting dimensions of an image': (test) ->
 		image = new test.magician __dirname + '/image.jpg'
 		image.getDimensions (dimensions) ->
