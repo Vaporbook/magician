@@ -80,8 +80,12 @@ image.resizeTo 100, 100, (err) ->
 image.cropFrom 0, 0, 200, 100, (err) ->
 	// done!
 
-image.convert ->
+image.convert (err) ->
 	// convert from source format to target format
+
+image.getDimensions (err, dimensions) ->
+	width = dimensions.width
+	height = dimensions.height
 
 ```
 

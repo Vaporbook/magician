@@ -35,3 +35,11 @@ module.exports=
 		image.getDimensions (err, dimensions) ->
 			assert.equal(dimensions.width, 500) and assert.equal(dimensions.height, 250)
 			test.done()
+	
+	'test writing to folder with spaces in name': (test) ->
+		fs.mkdirSync __dirname + '/test folder'
+		image = new test.magician __dirname + '/image.jpg', __dirname + '/test folder/image.png'
+		image.convert ->
+			fs.statSync __dirname + '/test folder/image.png'
+			assert.ok(true)
+			test.done()
